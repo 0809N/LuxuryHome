@@ -422,9 +422,9 @@ Hero section
 
 .home_search_container {
     position: absolute;
-    top: -171px;
+    top: -90px;
     left: 15px;
-    width: calc(100% - 30px);
+    width: calc(100% - 35px);
     height: 90px;
     border-radius: 45px;
     padding: 10px;
