@@ -422,7 +422,7 @@ Hero section
 
 .home_search_container {
     position: absolute;
-    top: -90px;
+    top: -250px;
     left: 15px;
     width: calc(100% - 35px);
     height: 90px;
@@ -546,7 +546,7 @@ Hero section
 	position: absolute;
 	width: 100%;
 	left: 0;
-	bottom: 140px;
+	bottom: 300px;
 	z-index: 6;
 }
 
