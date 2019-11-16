@@ -1,8 +1,100 @@
 ﻿
 @{
-    ViewBag.Title = "News";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "News";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>News</h2>
-
+<!-- Blog section-->
+<section class="blog-section spad">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8">
+				<div class="blog-categorise">
+					<a href="">Khu vực</a>
+					<a href="">Architecture</a>
+					<a href="">In Progress</a>
+					<a href="">Thiết kế</a>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<form class="blog-search">
+					<input type="text" placeholder="Search in News Articles">
+					<button><img src="img/search.png" alt=""></button>
+				</form>
+			</div>
+		</div>
+		<div class="blog-item">
+			<div class="row">
+				<div class="col-lg-4 col-md-5">
+					<div class="blog-thumb set-bg">
+						 <img src="~/Content/img/blog/1.jpg" />
+					</div>
+				</div>
+				<div class="col-lg-8 col-md-7">
+					<div class="blog-content">
+						<div class="blog-date">25 January 2019</div>
+						<div class="blog-note">Featured</div>
+						<h2>Donec hendrerit id lectus vel vehicula</h2>
+						<p>In vel dignissim tellus, a ultrices magna. Curabitur dignissim fringilla felis sed vulputate. Donec fringilla massa enim, ut sodales massa venenatis eget. Nunc et orci libero. Aliquam sodales felis nunc, vitae varius nunc tristique non. Sed id fringil-la nibh. Cras finibus, orci at ultrices imperdiet, dui lectus lacinia nibh rcu eget tincidunt viverra. Nullam sagittis arcu nec vulputate cursus. Quisque venenatis ultrices vestibulum. </p>
+						<a href="#" class="site-btn">READ MORE</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="blog-item">
+			<div class="row">
+				<div class="col-lg-4 col-md-5">
+					<div class="blog-thumb set-bg">
+						<img src="~/Content/img/blog/2.jpg" />
+					</div>
+				</div>
+				<div class="col-lg-8 col-md-7">
+					<div class="blog-content">
+						<div class="blog-date">25 January 2019</div>
+						<h2>Vivamus sagittis est quis bibendum volutpat Maecenas maximus tellus non nisl alec</h2>
+						<p>In vel dignissim tellus, a ultrices magna. Curabitur dignissim fringilla felis sed vulputate. Donec fringilla massa enim, ut sodales massa venenatis eget. Nunc et orci libero. Aliquam sodales felis nunc, vitae varius nunc tristique non. Sed id fringilla nibh. </p>
+						<a href="#" class="site-btn">READ MORE</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="blog-item">
+			<div class="row">
+				<div class="col-lg-4 col-md-5">
+					<div class="blog-thumb set-bg">
+						<img src="~/Content/img/blog/3.jpg" alt="">
+					</div>
+				</div>
+				<div class="col-lg-8 col-md-7">
+					<div class="blog-content">
+						<div class="blog-date">25 January 2019</div>
+						<h2>bibendum volutpat Maecenas maximus tellus non nisl alec</h2>
+						<p>In vel dignissim tellus, a ultrices magna. Curabitur dignissim fringilla felis sed vulputate. Donec fringilla massa enim, ut sodales massa venenatis eget. Nunc et orci libero. Aliquam sodales felis nunc, vitae varius nunc tristique non. Sed id fringil-la nibh. Cras finibus, orci at ultrices imperdiet, dui lectus lacinia nibh rcu eget tincidunt viverra. Nullam sagittis arcu nec vulputate cursus. Quisque venenatis ultrices vestibulum. </p>
+						<a href="#" class="site-btn">READ MORE</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="blog-item">
+			<div class="row">
+				<div class="col-lg-4 col-md-5">
+					<div class="blog-thumb set-bg">
+						<img src="~/Content/img/blog/4.jpg" alt="">
+					</div>
+				</div>
+				<div class="col-lg-8 col-md-7">
+					<div class="blog-content">
+						<div class="blog-date">25 January 2019</div>
+						<h2>Aliquam sodales felis nunc, vitae varius nunc tristique non.</h2>
+						<p>In vel dignissim tellus, a ultrices magna. Curabitur dignissim fringilla felis sed vulputate. Donec fringilla massa enim, ut sodales massa venenatis eget. Nunc et orci libero. Aliquam sodales felis nunc, vitae varius nunc tristique non. Sed id fringil-la nibh. Cras finibus, orci at ultrices imperdiet, dui lectus lacinia nibh rcu eget tincidunt viverra. Nullam sagittis arcu nec vulputate cursus. Quisque venenatis ultrices vestibulum. </p>
+						<a href="#" class="site-btn">READ MORE</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="text-center pt-4">
+			<button class="site-btn sb-solid">LOAD MORE</button>
+		</div>
+	</div>
+</section>
+<!-- Blog section end-->
