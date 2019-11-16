@@ -17,6 +17,14 @@ body {
 	font-smoothing: antialiased;
 }
 
+div {
+    display: block;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 h1,
 h2,
 h3,
@@ -81,6 +89,8 @@ ol {
 	margin: 0;
 }
 
+
+
 /*---------------------
 Helper CSS
  -----------------------*/
@@ -136,6 +146,8 @@ Helper CSS
 .text-white a {
 	color: #fff;
 }
+
+
 
 /*---------------------
 Commom elements
@@ -397,6 +409,98 @@ Hero section
 	top: 50px;
 	opacity: 0;
 	position: relative;
+}
+
+/*********************************
+6. Home Search
+*********************************/
+
+.home_search {
+    width: 100%;
+    z-index: 100;
+}
+
+.home_search_container {
+    position: absolute;
+    top: -171px;
+    left: 15px;
+    width: calc(100% - 30px);
+    height: 90px;
+    border-radius: 45px;
+    padding: 10px;
+    background: rgba(255,255,255,0.33);
+}
+
+.home_search_content {
+    width: 100%;
+    height: 100%;
+    background: #FFFFFF;
+    border-radius: 35px;
+}
+
+.search_form {
+    position: relative;
+    height: 100%;
+}
+
+.search_form_content {
+    width: 100%;
+    height: 100%;
+    padding-left: 14px;
+    padding-right: 11px;
+}
+
+    .search_form_content > div {
+        width: 20%;
+        height: 100%;
+        padding-left: 18px;
+        padding-right: 2px;
+    }
+
+        .search_form_content > div:not(:last-child) {
+            border-right: solid 2px #d1d1d1;
+        }
+
+.search_form_select {
+    display: block;
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+    -webkit-user-select: none;
+    background-image: url(/Content/img/down.png);
+    background-position: center right;
+    background-repeat: no-repeat;
+    border: none;
+    outline: none;
+    font-size: 13px;
+    font-weight: 400;
+    color: #6b6b6b;
+    cursor: pointer;
+}
+
+.search_form_button {
+    width: 193px;
+    height: 100%;
+    border-radius: 35px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    background: linear-gradient(to right, #487fee, #32fa95);
 }
 
 .hero-slider .owl-item.active .hs-item h2 {
