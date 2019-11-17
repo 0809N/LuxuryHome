@@ -167,6 +167,8 @@
     <Content Include="Content\icon-fonts\fontawesome-webfont.svg" />
     <Content Include="Content\img\about\1.jpg" />
     <Content Include="Content\img\blog\1.jpg" />
+    <Content Include="Content\img\blog\11.jpg" />
+    <Content Include="Content\img\blog\12.jpg" />
     <Content Include="Content\img\blog\2.jpg" />
     <Content Include="Content\img\blog\3.jpg" />
     <Content Include="Content\img\blog\4.jpg" />
@@ -198,8 +200,8 @@
     <Content Include="Content\img\location\thumb-2.jpg" />
     <Content Include="Content\img\location\thumb-3.jpg" />
     <Content Include="Content\img\location\thumb-4.jpg" />
+    <Content Include="Content\img\log-color.png" />
     <Content Include="Content\img\logo.png" />
-    <Content Include="Content\img\log_color.png" />
     <Content Include="Content\img\page-top-bg\1.jpg" />
     <Content Include="Content\img\page-top-bg\2.jpg" />
     <Content Include="Content\img\page-top-bg\3.jpg" />
