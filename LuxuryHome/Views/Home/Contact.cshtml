@@ -1,196 +1,73 @@
 ﻿
 @{
     ViewBag.Title = "Contact";
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
-<html lang="zxx">
-<head>
-    <title>Liên hệ</title>
-    <meta charset="UTF-8">
-    <meta name="description" content="Real estate html template">
-    <meta name="keywords" content="real estate, html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Favicon -->
-    <link href="Content/img/favicon.ico" rel="shortcut icon" />
+   <!--Contact-->
+    <link rel="stylesheet" type="text/css" href="/Content/Contact/styles/bootstrap4/bootstrap.min.css">
+    <link href="/Content/Contact/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/Content/Contact/plugins/rangeslider.js-2.3.0/rangeslider.css">
+    <link rel="stylesheet" type="text/css" href="/Content/Contact/styles/contact.css">
+    <link rel="stylesheet" type="text/css" href="/Content/Contact/styles/contact_responsive.css">
+    <!-- Contact -->
 
-    <!-- Google font -->
-    <link href="https://fonts.googleapis.com/css?family=Sarabun:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap" rel="stylesheet">
-
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="/Content/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/Content/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="/Content/css/flaticon.css" />
-    <link rel="stylesheet" href="/Content/css/magnific-popup.css" />
-    <link rel="stylesheet" href="/Content/css/owl.carousel.min.css" />
-
-    <!-- Main Stylesheets -->
-    <link rel="stylesheet" href="/Content/css/style.css" />
-
-
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-<body>
-    <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
-
-    <!-- Header section -->
-    <header class="header-section">
-        <!-- logo -->
-        <a href="index.html" class="site-logo">
-            <img src="/Content/img/logo.png" alt="" width="200" height="100">
-        </a>
-        <div class="nav-switch">
-            <i class="fa fa-bars"></i>
-        </div>
-        <div class="container">
-            <ul class="main-menu">
-                <li><a href="index.html">Trang chủ</a></li>
-                <li><a href="property.html">Dự án</a></li>
-                <li><a href="developments.html">Lịch sử</a></li>
-                <li><a href="blog.html">Tin tức</a></li>
-                <li><a href="contact.html">Liên hệ</a></li>
-            </ul>
-        </div>
-    </header>
-    <!-- Header section end -->
-    <!-- Page top section -->
-    <section class="page-top-section set-bg" data-setbg="/Content/img/page-top-bg/4.jpg">
+    <div class="contact">
         <div class="container">
             <div class="row">
-                <div class="col-lg-5">
-                    <div class="page-top-text text-white">
-                        <h1>Liên hệ</h1>
-                        <p>Liên hệ với chúng tôi để được hỗ trợ tốt nhất</p>
+
+                <!-- Contact Info -->
+                <div class="col-lg-4">
+                    <div class="contact_info">
+                        <div class="section_title">Liên Hệ Với Chúng Tôi</div>
+                        <div class="section_subtitle">Thông tin liên hệ</div>
+                        <div class="contact_info_content">
+                            <ul class="contact_info_list">
+                                <li>
+                                    <div>Địa chỉ:</div>
+                                    <div>Đại Học Văn Lang</div>
+                                </li>
+                                <li>
+                                    <div>Số Điện Thoại:</div>
+                                    <div>0977077770</div>
+                                </li>
+                                <li>
+                                    <div>Email:</div>
+                                    <div>PPC@BDS.COM.VN</div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="hero-social-warp">
-            <div class="hero-social">
-                <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
-                <a href="https://www.linkedin.com/"><i class="fa fa-linkedin"></i></a>
-                <a href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
-                <a href="https://www.youtube.com/"><i class="fa fa-youtube-play"></i></a>
-                <a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a>
-            </div>
-        </div>
-    </section>
-    <!-- Page top section end -->
-    <!-- Contact section-->
-    <section class="contact-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-7 offset-lg-5">
-                    <div class="contact-info-box">
-                        <h5 class="contact-title">Thông tin</h5>
-                        <div class="contact-info">
-                            <br>
-                            <div class="ci-item">
-                                <img src="/Content/img/icons/location.png" class="ci-icon" alt="">
-                                <p>HO CHI MINH CITY</p>
+
+                <!-- Contact Form -->
+                <div class="col-lg-8">
+                    <div class="contact_form_container">
+                        <form action="#" class="contact_form" id="contact_form">
+                            <div class="row">
+                                <!-- Name -->
+                                <div class="col-lg-6 contact_name_col">
+                                    <input type="text" class="contact_input" placeholder="Họ và tên" required="required">
+                                </div>
+                                <!-- Email -->
+                                <div class="col-lg-6">
+                                    <input type="email" class="contact_input" placeholder="Email" required="required">
+                                </div>
                             </div>
-                            <div class="ci-item">
-                                <img src="/Content/img/icons/headphone.png" class="ci-icon" alt="">
-                                <p>0977777077</p>
-                            </div>
-                            <div class="ci-item">
-                                <img src="/Content/img/icons/envelope.png" class="ci-icon" alt="">
-                                <p>PPC@BDS.COM</p>
-                            </div>
-                            </br>
-                        </div>
-                        <h5 class="contact-title">Thông tin cần hỗ trợ</h5>
-                        <form class="contact-form">
-                            <div class="form-field">
-                                <img src="/Content/img/icons/profile.png" alt="">
-                                <input type="text" placeholder="Họ và tên">
-                            </div>
-                            <div class="form-field">
-                                <img src="/Content/img/icons/envelope.png" alt="">
-                                <input type="text" placeholder="Email">
-                            </div>
-                            <div class="form-field">
-                                <img src="/Content/img/icons/chat.png" alt="">
-                                <textarea placeholder="Tin nhắn..."></textarea>
-                            </div>
-                            <button class="site-btn">GỬI</button>
+                            <div><input type="text" class="contact_input" placeholder="Chủ đề"></div>
+                            <div><textarea class="contact_textarea contact_input" placeholder="Tin nhắn..." required="required"></textarea></div>
+                            <button class="contact_button button">GỬI</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Map -->
-        <div class="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d501725.3382567035!2d106.41504071638664!3d10.755341071470365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317529292e8d3dd1%3A0xf15f5aad773c112b!2zSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1573887410361!5m2!1svi!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-        </div>
-    </section>
-    <!-- Contact section end-->
-    <!-- Footer section -->
-    <footer class="footer-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5 col-md-2 col-sm-12">
-                    <div class="footer-widget">
-                        <img src="~/Content/img/logo.png" alt="" width="200" height="100">
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-3 col-sm-4">
-                    <div class="footer-widget">
-                        <h5>CÔNG TY</h5>
-                        <ul>
-                            <li><a href="">Thông tin</a></li>
-                            <li><a href="">Văn phòng</a></li>
-                            <li><a href="">Liên hệ</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-3 col-sm-4">
-                    <div class="footer-widget">
-                        <h5>Hợp pháp</h5>
-                        <ul>
-                            <li><a href="">Tài liệu</a></li>
-                            <li><a href="">Hướng dẫn mua và bán</a></li>
-                            <li><a href="">Điều khoản & Điều kiện</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-4">
-                    <div class="footer-widget">
-                        <h5>Mạng xã hội</h5>
-                        <div class="footer-social">
-                            <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
-                            <a href="https://www.linkedin.com/"><i class="fa fa-linkedin"></i></a>
-                            <a href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
-                            <a href="https://www.youtube.com/"><i class="fa fa-youtube-play"></i></a>
-                            <a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="copyright">
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                Copyright &copy;
-                <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            </div>
-        </div>
-    </footer>
-    <!-- Footer section end-->
-    <!--====== Javascripts & Jquery ======-->
-    <script src="/Content/js/jquery-3.2.1.min.js"></script>
-    <script src="/Content/js/bootstrap.min.js"></script>
-    <script src="/Content/js/owl.carousel.min.js"></script>
-    <script src="/Content/js/jquery.magnific-popup.min.js"></script>
-    <script src="/Content/js/main.js"></script>
+    </div>
 
-</body>
-</html>
+    <!-- Map -->
+    <div class="contact_map">
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.7902422080133!2d106.70106501533434!3d10.827358161210967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175288ad78aea3d%3A0x832872254782586d!2zxJDhuqFpIGjhu41jIFbEg24gTGFuZyBjxqEgc-G7nyAz!5e0!3m2!1svi!2s!4v1573977431517!5m2!1svi!2s" width="200" height="200" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+        </div>
+    </div>
