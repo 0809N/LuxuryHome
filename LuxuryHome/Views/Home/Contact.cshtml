@@ -1,4 +1,4 @@
-﻿
+﻿@model LuxuryHome.Models.Property
 @{
     ViewBag.Title = "Contact";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -18,49 +18,29 @@
             <div class="row">
 
                 <!-- Contact Info -->
-                <div class="col-lg-4">
+                <div class="col-lg-4" >
                     <div class="contact_info">
-                        <div class="section_title">Liên Hệ Với Chúng Tôi</div>
-                        <div class="section_subtitle">Thông tin liên hệ</div>
+                        <div class="section_title" >Liên Hệ Với Chúng Tôi</div>
+                        <div class="section_subtitle" >Thông tin liên hệ</div>
                         <div class="contact_info_content">
                             <ul class="contact_info_list">
                                 <li>
                                     <div>Địa chỉ:</div>
-                                    <div>Đại Học Văn Lang</div>
+                                    <div>97 Đường 30, Gò Vấp</div>
                                 </li>
                                 <li>
                                     <div>Số Điện Thoại:</div>
-                                    <div>0977077770</div>
+                                    <div>0339841908</div>
                                 </li>
                                 <li>
-                                    <div>Email:</div>
-                                    <div>PPC@BDS.COM.VN</div>
+                                    <div> Email:
+                                    <a>tinhnguyen.tinh2013@gmail.com</a>
+                                    </div> 
                                 </li>
                             </ul>
                         </div>
                     </div>
-                </div>
-
-                <!-- Contact Form -->
-                <div class="col-lg-8">
-                    <div class="contact_form_container">
-                        <form action="#" class="contact_form" id="contact_form">
-                            <div class="row">
-                                <!-- Name -->
-                                <div class="col-lg-6 contact_name_col">
-                                    <input type="text" class="contact_input" placeholder="Họ và tên" required="required">
-                                </div>
-                                <!-- Email -->
-                                <div class="col-lg-6">
-                                    <input type="email" class="contact_input" placeholder="Email" required="required">
-                                </div>
-                            </div>
-                            <div><input type="text" class="contact_input" placeholder="Chủ đề"></div>
-                            <div><textarea class="contact_textarea contact_input" placeholder="Tin nhắn..." required="required"></textarea></div>
-                            <button class="contact_button button">GỬI</button>
-                        </form>
-                    </div>
-                </div>
+                </div>              
             </div>
         </div>
     </div>
