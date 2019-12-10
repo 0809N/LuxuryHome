@@ -55,6 +55,12 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -172,6 +178,7 @@
     <Compile Include="Models\District.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Districtload.cs" />
     <Compile Include="Models\FullContractPrintModel.cs" />
     <Compile Include="Models\Full_Contract.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -219,8 +226,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\about.css" />
+    <Content Include="Content\about_responsive.css" />
     <Content Include="Content\adminlte.min.css" />
     <Content Include="Content\all.min.css" />
+    <Content Include="Content\contact.css" />
+    <Content Include="Content\contact_responsive.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\flaticon.css" />
     <Content Include="Content\css\font-awesome.min.css" />
@@ -230,6 +241,8 @@
     <Content Include="Content\css\sb-admin.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\dataTables.bootstrap4.css" />
+    <Content Include="Content\elements.css" />
+    <Content Include="Content\elements_responsive.css" />
     <Content Include="Content\icon-fonts\Flaticon.svg" />
     <Content Include="Content\icon-fonts\fontawesome-webfont.svg" />
     <Content Include="Content\img\about\1.jpg" />
@@ -314,6 +327,15 @@
     <Content Include="Content\Contact\plugins\rangeslider.js-2.3.0\rangeslider.css" />
     <Content Include="Content\Contact\plugins\rangeslider.js-2.3.0\rangeslider.min.js" />
     <Content Include="Content\Contact\plugins\scrollmagic\ScrollMagic.min.js" />
+    <Content Include="Content\main_styles.css" />
+    <Content Include="Content\news.css" />
+    <Content Include="Content\news_responsive.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\properties.css" />
+    <Content Include="Content\properties_responsive.css" />
+    <Content Include="Content\property.css" />
+    <Content Include="Content\property_responsive.css" />
+    <Content Include="Content\responsive.css" />
     <Content Include="Content\Source\photo credits - real estate.txt" />
     <Content Include="Content\Contact\styles\bootstrap4\bootstrap.min.css" />
     <Content Include="Content\Contact\styles\bootstrap4\bootstrap.min.js" />
@@ -325,6 +347,9 @@
     <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="Images\favicon.ico" />
+    <Content Include="Images\icon_1.png" />
+    <Content Include="Images\icon_2.png" />
+    <Content Include="Images\icon_3.png" />
     <Content Include="Images\ppc0001.jpg" />
     <Content Include="Images\ppc0002.jpg" />
     <Content Include="Images\ppc0003.jpg" />
@@ -337,6 +362,11 @@
     <Content Include="Images\ppc0010.jpg" />
     <Content Include="Images\PPCLogo-128-128.png" />
     <Content Include="Images\PPCLogo.png" />
+    <Content Include="Images\room_1.png" />
+    <Content Include="Images\room_2.png" />
+    <Content Include="Images\room_3.png" />
+    <Content Include="Images\room_4.png" />
+    <Content Include="Images\room_5.png" />
     <Content Include="Images\user2-160x160.jpg" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -349,6 +379,15 @@
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\jquery-1.7.1.min.js" />
+    <Content Include="Scripts\js\about.js" />
+    <Content Include="Scripts\js\contact.js" />
+    <Content Include="Scripts\js\custom.js" />
+    <Content Include="Scripts\js\elements.js" />
+    <Content Include="Scripts\js\jquery-3.2.1.min.js" />
+    <Content Include="Scripts\js\news.js" />
+    <Content Include="Scripts\js\properties.js" />
+    <Content Include="Scripts\js\property.js" />
+    <Content Include="Scripts\properties.js" />
     <Content Include="vendor\bootstrap\js\bootstrap.bundle.js" />
     <Content Include="vendor\bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="vendor\bootstrap\js\bootstrap.js" />
@@ -2018,7 +2057,6 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
-    <Content Include="Areas\Admin\Views\News\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\dataTables.bootstrap4.js" />
     <Content Include="Scripts\demo.js" />
@@ -2047,7 +2085,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Property.cshtml" />
-    <Content Include="Views\Home\History.cshtml" />
     <Content Include="Views\Home\News.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="webfonts\fa-brands-400.eot" />
@@ -2207,6 +2244,7 @@
     <Content Include="vendor\jquery\jquery.min.map" />
     <Content Include="vendor\jquery\jquery.slim.min.map" />
     <Content Include="webfonts\SourceSansPro-Regular.ttf" />
+    <Content Include="Views\Home\propertyDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2214,6 +2252,7 @@
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Admin\" />
     <Folder Include="Areas\Admin\Views\Contact\" />
+    <Folder Include="Areas\Admin\Views\News\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="webfonts\glyphicons-halflings-regular.woff2" />

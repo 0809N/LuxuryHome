@@ -34,39 +34,44 @@ namespace LuxuryHome.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Create([Bind(Include = "Property_Name,Property_Type_ID,Description,District_ID,Address" +
             ",Area,Bed_Room,Bath_Room,Price,Installment_Rate,Avatar,Album,Property_Status_ID")]
-        Property property,List< HttpPostedFileBase>files)
+        Property property, List<HttpPostedFileBase> files, HttpPostedFileBase file)
         {
 
             if (ModelState.IsValid)
             {
                 string album = "";
-                var file = Request.Files["file"];
+                // var file = Request.Files["files"];
                 Random random = new Random();
                 //Up Album
                 if (files != null)
                 {
-                    foreach (var imageFile in files)
+                    using (var scope = new TransactionScope())
                     {
-                        if (imageFile != null)
+                        foreach (var imageFile in files)
                         {
-                            var fileName = random.Next(1, 99999).ToString() + Path.GetFileName(imageFile.FileName);
-                            var physicalPath = Path.Combine(Server.MapPath("~/Images"), fileName);
+                            if (imageFile != null)
+                            {
+                                var fileName = random.Next(1, 99999).ToString() + Path.GetFileName(imageFile.FileName);
+                                var physicalPath = Path.Combine(Server.MapPath("~/Images"), fileName);
 
-                            // The files are not actually saved in this demo
-                            imageFile.SaveAs(physicalPath);
-                            album += album.Length > 0 ? ";" + fileName : fileName;
+                                // The files are not actually saved in this demo
+                                imageFile.SaveAs(physicalPath);
+                                album += album.Length > 0 ? ";" + fileName : fileName;
+                            }
                         }
                     }
+                    property.Album = album;
+                    //Avatar
+                    if (file != null)
+                    {
+                        var avatar = random.Next(1, 99999).ToString() + Path.GetFileName(file.FileName);
+                        var physicPath = Path.Combine(Server.MapPath("~/Images"), avatar);
+                        file.SaveAs(physicPath);
+                        property.Avatar = avatar;
+                    }
+
                 }
-                property.Album = album;
-                //Avatar
-                if (file != null)
-                {
-                    var avatar = random.Next(1, 99999).ToString() + Path.GetFileName(file.FileName);
-                    var physicPath = Path.Combine(Server.MapPath("~/Images"), avatar);
-                    file.SaveAs(physicPath);
-                    property.Avatar = avatar;
-                }
+
 
                 model.Properties.Add(property);
                 model.SaveChanges();
@@ -95,7 +100,7 @@ namespace LuxuryHome.Areas.Admin.Controllers
             return View(property);
         }
         [HttpPost]
-        public ActionResult Edit(Property pp, int id)
+        public ActionResult Edit(Property pp, int id, List<HttpPostedFileBase> files, HttpPostedFileBase file)
         {
             var Property = model.Properties.ToList();
             try
@@ -103,12 +108,49 @@ namespace LuxuryHome.Areas.Admin.Controllers
                 var property = model.Properties.Select(p => p).Where(p => p.ID == id).FirstOrDefault();
                 PoPularData(property.Property_Type_ID, property.Property_Status_ID);
                 property.Property_Name = pp.Property_Name;
+                property.Property_Type_ID = pp.Property_Type_ID;
                 property.Description = pp.Description;
+                property.District_ID = pp.District_ID;
                 property.Address = pp.Address;
-                property.Area = pp.Area;
+                property.Area = pp.Area;             
                 property.Bath_Room = pp.Bath_Room;
                 property.Bed_Room = pp.Bed_Room;
                 property.Price = pp.Price;
+                property.Installment_Rate = pp.Installment_Rate;
+                property.Property_Status_ID = pp.Property_Status_ID;                            
+                string album = "";
+                //var file = Request.Files["files"];
+
+                Random random = new Random();
+                //Up Album
+                if (files != null)
+                {
+                    using (var scrope = new TransactionScope())
+                    {
+                        foreach (var imageFile in files)
+                        {
+                            if (imageFile != null)
+                            {
+                                var fileName = random.Next(1, 99999).ToString() + Path.GetFileName(imageFile.FileName);
+                                var physicalPath = Path.Combine(Server.MapPath("~/Images"), fileName);
+
+                                // The files are not actually saved in this demo
+                                imageFile.SaveAs(physicalPath);
+                                album += album.Length > 0 ? ";" + fileName : fileName;
+                            }
+                        }
+                    }
+                    property.Album = album;
+                    //Avatar
+                    if (file != null)
+                    {
+
+                        var avatar = random.Next(1, 99999).ToString() + Path.GetFileName(file.FileName);
+                        var physicPath = Path.Combine(Server.MapPath("~/Images"), avatar);
+                        file.SaveAs(physicPath);
+                        property.Avatar = avatar;
+                    }
+                }
                 model.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -117,6 +159,9 @@ namespace LuxuryHome.Areas.Admin.Controllers
                 return View(Property);
             }
         }
+
+
+
         [HttpGet]
         public ActionResult Delete(int id)
         {
@@ -140,7 +185,30 @@ namespace LuxuryHome.Areas.Admin.Controllers
             }
             catch { return View(); }
         }
+        [HttpPost] 
+        public string deleteImage(string imageName, int id)
+        {
+            string fullPath = Request.MapPath("~/Images" + imageName);
+            if (System.IO.File.Exists(fullPath))
+            {
+                System.IO.File.Delete(fullPath);
+            }
+            var property = model.Properties.FirstOrDefault(x => x.ID == id);
+            var album = property.Album.Split(';');
+            album = album.Where(w => w != imageName).ToArray();
+            property.Album = string.Join(";", album);
 
+            model.Entry(property).State = System.Data.Entity.EntityState.Modified;
+            model.SaveChanges();
+            return property.Album;
 
+        }
+        public JsonResult GetDistrictByCityId(int id)
+        {
+            // Disable proxy creation
+            model.Configuration.ProxyCreationEnabled = false;
+            var listDistrict = model.Districts.Where(x => x.City_ID == id).ToList();
+            return Json(listDistrict, JsonRequestBehavior.AllowGet);
+        }
     }
 }

@@ -5,10 +5,11 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-@using (Html.BeginForm())
+@Html.ValidationSummary(excludePropertyErrors: true)
+@using (Html.BeginForm("Edit", "PropertyManager", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4 align="center">Edit Property</h4>
         <hr />
@@ -19,7 +20,7 @@
             @Html.LabelFor(model => model.Property_Code, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Property_Code, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Property_Code, "", new { @class = "text-danger" })
+                 @Html.ValidationMessageFor(model => model.Property_Code, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -104,37 +105,74 @@
         </div>
 
         <div class="form-group">
+
             @Html.LabelFor(model => model.Avatar, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Avatar, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Avatar, "", new { @class = "text-danger" })
+                @if (!String.IsNullOrEmpty(Model.Avatar) && Model.Avatar != "")
+                {<img src="@(Url.Content("~/Images/" + Model.Avatar))" width="80" />}
+                <input name="file" type="file" multiple />
+                @Html.EditorFor(model => model.Avatar, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
             </div>
+
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Album, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Album, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Album, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <input name="files" type="file" multiple />
+                @Html.EditorFor(model => model.Album, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                @if (!String.IsNullOrEmpty(Model.Album) && Model.Album != "")
+                {
+                    foreach (var image in Model.Album.Split(';'))
+                    {
+                        if (!String.IsNullOrEmpty(image) || image != "")
+                        {
+                            int i = 0;
+                            <span id="image-@(i)">
+                                <img src="@(Url.Content("~/Images/" + image))" width="80" />
+                                <button type="button" class="btn btn-danger" onclick="@("deleteImage(\"" + image + "\"," + Model.ID + "," + i + ");")">Delete</button>
+                            </span>
+                            i++;
+                        }
+                    }
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Property_Status_ID, "Property_Status_ID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("Property_Status_ID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Property_Status_ID, "", new { @class = "text-danger" })
+                }
             </div>
-        </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+            <div class="form-group">
+                @Html.LabelFor(model => model.Property_Status_ID, "Property_Status_ID", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("Property_Status_ID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Property_Status_ID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
             </div>
         </div>
     </div>
 }
-
+<script>
+    function deleteImage(image, id, i) {
+        event.preventDefault();
+        $.post("/Admin/PropertyManager/deleteImage",         
+            {
+                imageName: image,
+                id: id
+            },
+            function (data, status) {
+                $("#album").val(data);
+                $("#image-" + i).hide();
+            });
+    }
+</script>
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

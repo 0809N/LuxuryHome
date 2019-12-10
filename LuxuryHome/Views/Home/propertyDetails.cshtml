@@ -1,0 +1,91 @@
+﻿@model LuxuryHome.Models.Property
+
+@{
+    ViewBag.Title = "propertyDetails";
+}
+
+@section detailscss{
+    <link rel="stylesheet" type="text/css" href="~/Content/property.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/property_responsive.css">
+}
+
+@section detailss{
+    <script src="~/Scripts/js/property.js"></script>
+    }
+<div class="property">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+    <div class="sidebar_realtor">
+        <div class="sidebar_realtor_image"><img src="~/Images/@Model.Avatar" alt="" width="1500px"></div>
+        
+    </div>
+    <!-- Property Content -->
+    <div class="col-lg-7 offset-lg-1">
+        <div class="property_content">
+            <div class="property_icons">
+                <div class="property_title">@Model.Property_Name</div>
+                <div class="property_rooms d-flex flex-sm-row flex-column align-items-start justify-content-start">
+
+                    <!-- Property Room Item -->
+                    <div class="property_room">
+                        <div class="property_room_title">Bedrooms</div>
+                        <div class="property_room_content d-flex flex-row align-items-center justify-content-start">
+                            <div class="room_icon"><img src="~/Images/room_1.png" alt=""></div>
+                            <div class="room_num">@Model.Bed_Room</div>
+                        </div>
+                    </div>
+
+                    <!-- Property Room Item -->
+                    <div class="property_room">
+                        <div class="property_room_title">Bathrooms</div>
+                        <div class="property_room_content d-flex flex-row align-items-center justify-content-start">
+                            <div class="room_icon"><img src="~/Images/room_2.png" alt=""></div>
+                            <div class="room_num">@Model.Bath_Room</div>
+                        </div>
+                    </div>
+
+                    <!-- Property Room Item -->
+                    <div class="property_room">
+                        <div class="property_room_title">Area</div>
+                        <div class="property_room_content d-flex flex-row align-items-center justify-content-start">
+                            <div class="room_icon"><img src="~/Images/room_3.png" alt=""></div>
+                            <div class="room_num">@Model.Area</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Description -->
+
+            <div class="property_description">
+                <div class="property_title">Description</div>
+                <div class="property_text property_text_2">
+                    <p>@Model.Description</p>
+                </div>
+            </div>
+            <div>
+                @if (!String.IsNullOrEmpty(Model.Album) && Model.Album != "")
+                {
+                    foreach (var image in Model.Album.Split(';'))
+                    {
+                        if (!String.IsNullOrEmpty(image) || image != "")
+                        {
+                <span >
+                    <img src="@(Url.Content("~/Images/" + image))" width="900" />
+                    <br />
+                </span>                            
+                        }
+                    }
+                }
+            </div>
+            <div class="sidebar_realtor_body text-center">
+                <div class="sidebar_realtor_title"><a href="#">Liên hệ với chúng tôi</a></div>
+                <div class="sidebar_realtor_subtitle"></div>
+                <div class="sidebar_realtor_phone"><span>call us: </span>+84 1234567890</div>
+                <div class="realtor_link"><a href="@Url.Action("Contact","Home")">+</a></div>
+            </div>
+        </div>
+    </div>
+</div>

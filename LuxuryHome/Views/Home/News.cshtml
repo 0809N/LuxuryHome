@@ -1,99 +1,69 @@
-﻿
+﻿@using LuxuryHome.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<Property>
+
 @{
-	ViewBag.Title = "News";
-	Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "News";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!-- Blog section-->
-<section class="blog-section spad">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-8">
-				<div class="blog-categorise">
-					@*<a href="">Khu vực</a>
-					<a href="">Đang trong tiến trình/</a>
-					<a href="">Thiết kế</a>*@
-				</div>
-			</div>
-			<div class="col-lg-4">
-				<form class="blog-search">
-					<input type="text" placeholder="Tìm kiếm công trình mới">
-					<button><img src="~/Content/img/search.png" alt=""></button>
-				</form>
-			</div>
-		</div>
-		<div class="blog-item">
-			<div class="row">
-				<div class="col-lg-4 col-md-5">
-					<div class="blog-thumb set-bg">
-						 <img src="~/Content/img/blog/11.jpg" width="400", height="280" />
-					</div>
-				</div>
-				<div class="col-lg-8 col-md-7">
-					<div class="blog-content">
-						<div class="blog-date">17 Tháng 11 Năm 2019</div>
-						<div class="blog-note">Nổi bật</div>
-						<h2>Villa với thiết kế nhìn được ra biển</h2>
-						<p>Công trình Villa được thiết kế phù hợp với ngoại cảnh xung quanh, villa có thể nhìn được ra biển, trọng tâm là 3 không gian chính bao gồm phòng khách, phòng ăn, phòng bếp liên kết với nhau. Đây là một công trình nổi bật và được kiến trúc sư thiết kế rất tỉ mỉ.</p>
-						<a href="#" class="site-btn">Xem chi tiết</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="blog-item">
-			<div class="row">
-				<div class="col-lg-4 col-md-5">
-					<div class="blog-thumb set-bg">
-						<img src="~/Content/img/blog/12.jpg" />
-					</div>
-				</div>
-				<div class="col-lg-8 col-md-7">
-					<div class="blog-content">
-						<div class="blog-date">7 Tháng 11 Năm 2019</div>
-						<h2>Dự án căn hộ cao cấp với thiết kế sang trọng.</h2>
-						<p>Công trình căn hộ cao cấp với thiết kế sang trọng và thông minh, căn hộ được đặt ở vị trí đẹp có thể ngắm nhìn thành phố, căn hộ được trang bị 3 phòng ngủ, 1 phòng khách, 1 nhà bếp và 4 nhà vệ sinh. Ngoài ra, căn hộ được trang bị những thiết bị thông minh, đây là một điều tuyệt vời mà những căn hộ mới hiện nay cần có.</p>
-						<a href="#" class="site-btn">Xem chi tiết</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="blog-item">
-			<div class="row">
-				<div class="col-lg-4 col-md-5">
-					<div class="blog-thumb set-bg">
-						<img src="~/Content/img/blog/3.jpg" alt="">
-					</div>
-				</div>
-				<div class="col-lg-8 col-md-7">
-					<div class="blog-content">
-						<div class="blog-date">20 Tháng 10 Năm 2019</div>
-						<h2>bibendum volutpat Maecenas maximus tellus non nisl alec</h2>
-						<p>In vel dignissim tellus, a ultrices magna. Curabitur dignissim fringilla felis sed vulputate. Donec fringilla massa enim, ut sodales massa venenatis eget. Nunc et orci libero. Aliquam sodales felis nunc, vitae varius nunc tristique non. Sed id fringil-la nibh. Cras finibus, orci at ultrices imperdiet, dui lectus lacinia nibh rcu eget tincidunt viverra. Nullam sagittis arcu nec vulputate cursus. Quisque venenatis ultrices vestibulum. </p>
-						<a href="#" class="site-btn">Xem chi tiết</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="blog-item">
-			<div class="row">
-				<div class="col-lg-4 col-md-5">
-					<div class="blog-thumb set-bg">
-						<img src="~/Content/img/blog/4.jpg" alt="">
-					</div>
-				</div>
-				<div class="col-lg-8 col-md-7">
-					<div class="blog-content">
-						<div class="blog-date">6 Tháng 9 Năm 2019</div>
-						<h2>Aliquam sodales felis nunc, vitae varius nunc tristique non.</h2>
-						<p>In vel dignissim tellus, a ultrices magna. Curabitur dignissim fringilla felis sed vulputate. Donec fringilla massa enim, ut sodales massa venenatis eget. Nunc et orci libero. Aliquam sodales felis nunc, vitae varius nunc tristique non. Sed id fringil-la nibh. Cras finibus, orci at ultrices imperdiet, dui lectus lacinia nibh rcu eget tincidunt viverra. Nullam sagittis arcu nec vulputate cursus. Quisque venenatis ultrices vestibulum. </p>
-						<a href="#" class="site-btn">Xem chi tiết</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="text-center pt-4">
-			<button class="site-btn sb-solid">Xem thêm</button>
-		</div>
-	</div>
-</section>
-<!-- Blog section end-->
+@section newscss{
+    <link rel="stylesheet" type="text/css" href="~/Content/news.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/news_responsive.css">
+}
+
+@section newss{
+    <script src="~/Scripts/js/news.js"></script>
+}
+<!-- News -->
+
+<div class="news">
+    <div class="container">
+        <div class="row">
+
+          
+                <!-- News Posts -->
+                <div class="col-lg-8">
+                    <div class="news_posts">
+                        @{
+                            var result = 0;
+                            var count = 1;
+                        }
+                        @foreach (var item in Model)
+                        {
+                            if (count < item.ID)
+                            {
+                                result = count;
+                                count++;
+                            }
+                            <!-- News Post -->
+
+                            <div class="news_post">
+                                <div class="news_post_title_container d-flex flex-row align-items-center justify-content-start">
+                                    <div>
+                                        <div class="news_post_date_container d-flex flex-column align-items-center justify-content-center">
+                                            <div class="news_post_day">
+                                                @result
+                                            </div>
+                                            <div class="news_post_month"></div>
+                                        </div>
+                                    </div>
+                                    <div class="news_post_title_content">
+                                        <div class="news_post_title"><a href="@Url.Action("propertyDetails","Home",new {@id = item.ID })">@item.Property_Name</a></div>
+                                    </div>
+                                </div>
+                                <div class="news_post_image"><img src="~/Images/@item.Avatar" alt="" width="400px" height="300px"></div>
+                                <div class="news_post_text">
+                                    <p>@item.Description</p>
+                                </div>
+
+
+                            </div>
+                        }
+                        <!-- Pagination -->
+                        @Html.PagedListPager(Model, page => Url.Action("News", new { page, @class = "phantrang" }))
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>

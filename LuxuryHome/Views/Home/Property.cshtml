@@ -1,8 +1,62 @@
-﻿
+﻿@model IEnumerable<LuxuryHome.Models.Property>
 @{
     ViewBag.Title = "Property";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@section Propcss{
+    <link rel="stylesheet" type="text/css" href="~/Content/properties.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/properties_responsive.css">
+}
+@section Propsrc{
+    <script src="~/Scripts/js/properties.js"></script>
+    }
 
-<h2>Property</h2>
+<!-- Properties -->
 
+<div class="properties">
+    <div class="container">
+        <div class="row">
+
+        </div>
+        <div class="row properties_row">
+            @foreach (var item in Model)
+            {
+                <!-- Property -->
+                <div class="col-xl-4 col-lg-6 property_col">
+                    <div class="property">
+                        <div class="property_image">
+                            <img src="~/Images/@item.Avatar" alt="" width="370px" height="250px">
+                            <div class="tag_featured property_tag"><a href="">@item.Property_Status.Property_Status_Name</a></div>
+                        </div>
+                        <div class="property_body text-center">
+                            <div class="property_location">@item.Property_Name</div>
+                            <div class="property_title"><a href="@Url.Action("propertyDetails","Home",new { @id = item.ID })">See more</a></div>
+                            <div class="property_price">@item.Price</div>
+                        </div>
+                        <div class="property_footer d-flex flex-row align-items-center justify-content-start">
+                            <div><div class="property_icon"><img src="~/Images/icon_1.png" alt=""></div><span>@item.Area</span></div>
+                            <div><div class="property_icon"><img src="~/Images/icon_2.png" alt=""></div><span>@item.Bed_Room Bedrooms</span></div>
+                            <div><div class="property_icon"><img src="~/Images/icon_3.png" alt=""></div><span>@item.Bath_Room Bathrooms</span></div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+
+
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="pagination">
+                    <ul>
+                        <li class="active"><a href="#">01.</a></li>
+                        <li><a href="#">02.</a></li>
+                        <li><a href="#">03.</a></li>
+                        <li><a href="#">04.</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -9,7 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Favicon -->
-  
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Sarabun:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap" rel="stylesheet">
 
@@ -19,7 +18,11 @@
     <link rel="stylesheet" href="/Content/css/flaticon.css" />
     <link rel="stylesheet" href="/Content/css/magnific-popup.css" />
     <link rel="stylesheet" href="/Content/css/owl.carousel.min.css" />
-    <link rel="stylesheet" href="styles/responsive.css">
+    <link rel="stylesheet" href="/Content/responsive.css">
+    @RenderSection("Propcss", required: false)
+    @RenderSection("ctcss", required: false)
+    @RenderSection("newscss",required:false)
+    @RenderSection("detailscss",required:false)
 
     <!-- Main Stylesheets -->
     <link rel="stylesheet" href="/Content/css/style.css" />
@@ -46,14 +49,13 @@
         <div class="nav-switch">
             <i class="fa fa-bars"></i>
         </div>
-        <div class="container">
-            <ul class="main-menu">
-                <li><a href="#">TRANG CHỦ</a></li>
-                <li><a href="#">DỰ ÁN</a></li>
-                <li><a href="#">LỊCH SỬ</a></li>
-                <li><a href="#">TIN TỨC</a></li>
-                <li><a href="#">LIÊN HỆ</a></li>
-            </ul>
+        <div class="container">           
+                <ul class="main-menu">
+                    <li><a href="@Url.Action("Index","Home")">TRANG CHỦ</a></li>
+                    <li><a href="@Url.Action("Property","Home")">DỰ ÁN</a></li>                   
+                    <li><a href="@Url.Action("News","Home")">TIN TỨC</a></li>
+                    <li><a href="@Url.Action("Contact","Home")">LIÊN HỆ</a></li>
+                </ul>
         </div>
     </header>
     <!-- Header section end -->
@@ -190,7 +192,8 @@
             <div class="row">
                 <div class="col-lg-5 col-md-2 col-sm-12">
                     <div class="footer-widget">
-                        <img src="/Content/img/log-color.png" alt="">
+
+                        <img src="~/Images/PPCLogo-128-128.png" />
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-4">
@@ -198,7 +201,7 @@
                         <h5>CÔNG TY</h5>
                         <ul>
                             <li><a href="">Văn phòng</a></li>
-                            <li><a href="">Liên hệ</a></li>
+                            <li><a href="@Url.Action("Contact","Home")">Liên hệ</a></li>
                         </ul>
                     </div>
                 </div>
@@ -231,6 +234,9 @@
     <script src="/Content/js/owl.carousel.min.js"></script>
     <script src="/Content/js/jquery.magnific-popup.min.js"></script>
     <script src="/Content/js/main.js"></script>
-
+    @RenderSection("Propsrc",required:false)
+    @RenderSection("cts",required:false)
+    @RenderSection("newss",required:false)
+    @RenderSection("detailss",required:false)
 </body>
 </html>
